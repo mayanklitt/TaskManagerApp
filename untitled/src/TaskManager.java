@@ -3,6 +3,8 @@
 // Version : 1.0
 // Date: 10/08/2024
 // Description : This code file create task manager app using Java Swing UI
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
@@ -45,6 +47,10 @@ public class TaskManager extends JFrame {
         forwardButton.setMnemonic('F');
         backButton.setMnemonic('B');
 
+        // Set tooltips for navigation buttons
+        forwardButton.setToolTipText("Go to the next task (Alt+F)");
+        backButton.setToolTipText("Go to the previous task (Alt+B)");
+
         topPanel.add(taskIDField);
         topPanel.add(backButton);
         topPanel.add(forwardButton);
@@ -55,24 +61,32 @@ public class TaskManager extends JFrame {
         bottomPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Added padding
         bottomPanel.add(new JLabel("Task Name:"));
         nameField = new JTextField();
+        nameField.setToolTipText("Enter the name of the task here");
         bottomPanel.add(nameField);
+
         bottomPanel.add(new JLabel("Completed:"));
         completeCheckBox = new JCheckBox();
 
-        // Set mnemonic for the checkbox
+        // Set mnemonic and tooltip for the checkbox
         completeCheckBox.setMnemonic('C');
+        completeCheckBox.setToolTipText("Mark the task as completed (Alt+C)");
 
         bottomPanel.add(completeCheckBox);
+
         bottomPanel.add(new JLabel("Deadline (yyyy-mm-dd):"));
         deadlineField = new JTextField();
+        deadlineField.setToolTipText("Enter the deadline for the task in yyyy-mm-dd format");
         bottomPanel.add(deadlineField);
 
         saveTaskButton = new JButton("Save Task");
         addNewTaskButton = new JButton("Add New Task");
 
-        // Set mnemonics for the buttons
+        // Set mnemonics and tooltips for the buttons
         saveTaskButton.setMnemonic('S');
+        saveTaskButton.setToolTipText("Save the current task (Alt+S)");
+
         addNewTaskButton.setMnemonic('A');
+        addNewTaskButton.setToolTipText("Add a new task (Alt+A)");
 
         bottomPanel.add(saveTaskButton);
         bottomPanel.add(addNewTaskButton);
@@ -82,8 +96,9 @@ public class TaskManager extends JFrame {
         saveListButton = new JButton("Save List");
         saveListButton.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Added padding
 
-        // Set mnemonic for the Save List button
+        // Set mnemonic and tooltip for the Save List button
         saveListButton.setMnemonic('L');
+        saveListButton.setToolTipText("Save the list of tasks to a file (Alt+L)");
 
         add(saveListButton, BorderLayout.SOUTH);
 
