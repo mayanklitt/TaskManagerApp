@@ -3,10 +3,8 @@
 // Version : 1.0
 // Date: 10/08/2024
 // Description : This code file create task manager app using Java Swing UI
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -42,6 +40,11 @@ public class TaskManager extends JFrame {
         taskIDField.setEditable(false);
         forwardButton = new JButton("Forward");
         backButton = new JButton("Back");
+
+        // Set mnemonics for navigation buttons
+        forwardButton.setMnemonic('F');
+        backButton.setMnemonic('B');
+
         topPanel.add(taskIDField);
         topPanel.add(backButton);
         topPanel.add(forwardButton);
@@ -55,6 +58,10 @@ public class TaskManager extends JFrame {
         bottomPanel.add(nameField);
         bottomPanel.add(new JLabel("Completed:"));
         completeCheckBox = new JCheckBox();
+
+        // Set mnemonic for the checkbox
+        completeCheckBox.setMnemonic('C');
+
         bottomPanel.add(completeCheckBox);
         bottomPanel.add(new JLabel("Deadline (yyyy-mm-dd):"));
         deadlineField = new JTextField();
@@ -62,6 +69,11 @@ public class TaskManager extends JFrame {
 
         saveTaskButton = new JButton("Save Task");
         addNewTaskButton = new JButton("Add New Task");
+
+        // Set mnemonics for the buttons
+        saveTaskButton.setMnemonic('S');
+        addNewTaskButton.setMnemonic('A');
+
         bottomPanel.add(saveTaskButton);
         bottomPanel.add(addNewTaskButton);
         add(bottomPanel, BorderLayout.CENTER);
@@ -69,6 +81,10 @@ public class TaskManager extends JFrame {
         // Save List Button
         saveListButton = new JButton("Save List");
         saveListButton.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Added padding
+
+        // Set mnemonic for the Save List button
+        saveListButton.setMnemonic('L');
+
         add(saveListButton, BorderLayout.SOUTH);
 
         // Set up event listeners
@@ -95,8 +111,6 @@ public class TaskManager extends JFrame {
         // Update task display
         updateTaskDisplay();
         setButtonStates();
-
-
 
         // Frame settings
         setSize(600, 400);
